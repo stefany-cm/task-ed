@@ -5,13 +5,9 @@ import { UserService } from './user.service';
 export class UserController {
     constructor(private readonly userService: UserService) { }
 
-    @Get()
+    @Get('/all')
     async allUser() {
-        console.log('llegfa sl controlador')
-        const data = await this.userService.getAllUser();
-        return {
-            message: 'Sirve',
-            data
-        }
+        return await this.userService.getAllUser();
+        
     }
 }
